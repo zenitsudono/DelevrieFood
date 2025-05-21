@@ -1,4 +1,4 @@
-package com.app.delevriefood.ui.theme.theme
+package com.app.delevriefood.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
