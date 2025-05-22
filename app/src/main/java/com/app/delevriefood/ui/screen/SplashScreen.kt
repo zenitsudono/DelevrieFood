@@ -1,4 +1,4 @@
-package com.app.delevriefood.ui.screens
+package com.app.delevriefood.ui.screen
 
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.Image

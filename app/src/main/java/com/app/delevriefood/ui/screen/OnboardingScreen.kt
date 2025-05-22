@@ -24,8 +24,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.app.delevriefood.R
-import com.app.delevriefood.model.OnboardingItem
-import com.app.delevriefood.viewmodel.OnboardingViewModel
+import com.app.delevriefood.data.OnboardingItem
+import com.app.delevriefood.ui.viewModel.OnboardingViewModel
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalFoundationApi::class)
@@ -39,7 +39,6 @@ fun OnboardingScreen(
     val coroutineScope = rememberCoroutineScope()
     val currentPage by viewModel.currentPage.collectAsState()
     
-    // Update viewModel when page changes
     LaunchedEffect(pagerState.currentPage) {
         viewModel.onPageChanged(pagerState.currentPage)
     }
@@ -51,7 +50,6 @@ fun OnboardingScreen(
             .systemBarsPadding(),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        // Header section with logo and "Passer" button
         Row(
             modifier = Modifier
                 .fillMaxWidth()
@@ -59,14 +57,12 @@ fun OnboardingScreen(
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            // Logo on left
             Image(
                 painter = painterResource(id = R.drawable.logo),
                 contentDescription = "Logo",
-                modifier = Modifier.size(28.dp)
+                modifier = Modifier.size(28.dp),
             )
             
-            // Passer text on right
             Text(
                 text = "Passer",
                 color = Color(0xFFFF6E40),
@@ -78,7 +74,6 @@ fun OnboardingScreen(
             )
         }
 
-        // Pager content
         HorizontalPager(
             state = pagerState,
             modifier = Modifier
@@ -90,7 +85,6 @@ fun OnboardingScreen(
             )
         }
 
-        // Page indicators
         Row(
             modifier = Modifier
                 .padding(bottom = 20.dp),
@@ -112,7 +106,6 @@ fun OnboardingScreen(
             }
         }
 
-        // Bottom button
         Column(
             modifier = Modifier
                 .fillMaxWidth()
@@ -123,12 +116,10 @@ fun OnboardingScreen(
             Button(
                 onClick = { 
                     if (currentPage < onboardingItems.size - 1) {
-                        // Move to next page
                         coroutineScope.launch {
                             pagerState.animateScrollToPage(currentPage + 1)
                         }
                     } else {
-                        // Finish onboarding
                         onFinish()
                     }
                 },
@@ -160,7 +151,6 @@ fun OnboardingPage(item: OnboardingItem) {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        // Title
         Text(
             text = item.title,
             fontSize = 24.sp,
@@ -172,7 +162,6 @@ fun OnboardingPage(item: OnboardingItem) {
                 .padding(bottom = 40.dp)
         )
 
-        // Image
         Image(
             painter = painterResource(id = item.image),
             contentDescription = "Onboarding image",

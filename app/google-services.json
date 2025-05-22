@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "407774677058",
+    "project_id": "delevriefood",
+    "storage_bucket": "delevriefood.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:407774677058:android:99166a51a5d549722485db",
+        "android_client_info": {
+          "package_name": "com.app.delevriefood"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAoI9F6nSCZFdEbNLl7mQn2CXafKruqAQ0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

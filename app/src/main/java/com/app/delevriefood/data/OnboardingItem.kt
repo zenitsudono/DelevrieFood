@@ -1,4 +1,4 @@
-package com.app.delevriefood.model
+package com.app.delevriefood.data
 
 data class OnboardingItem(
     val image: Int,
